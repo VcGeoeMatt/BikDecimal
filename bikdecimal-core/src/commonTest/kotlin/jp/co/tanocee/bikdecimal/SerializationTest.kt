@@ -18,13 +18,13 @@ class SerializationTest {
         val data = TestData(BikDecimal("123.456"), "test")
         val json = Json.encodeToString(TestData.serializer(), data)
         
-        // JSON should contain the decimal as a string
-        assertEquals("""{"amount":"123.456","label":"test"}""", json)
+        // JSON should contain the decimal as a numeric literal (without quotes)
+        assertEquals("""{"amount":123.456,"label":"test"}""", json)
     }
 
     @Test
     fun testDeserialization() {
-        val json = """{"amount":"123.456","label":"test"}"""
+        val json = """{"amount":123.456,"label":"test"}"""
         val data = Json.decodeFromString(TestData.serializer(), json)
         
         assertEquals(BikDecimal("123.456"), data.amount)

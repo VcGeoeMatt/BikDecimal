@@ -77,6 +77,7 @@ kotlin {
       dependencies {
         implementation(libs.kotlin.stdlib)
         implementation(libs.kotlinx.serialization.core)
+        implementation(libs.kotlinx.serialization.json)
         // Add KMP dependencies here
       }
     }
